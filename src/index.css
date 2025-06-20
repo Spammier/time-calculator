@@ -147,22 +147,27 @@ code {
 .ant-picker-time-panel {
   background: transparent !important;
   border: none !important;
+  padding: 8px !important;
 }
 
 .ant-picker-time-panel-column {
-  background: rgba(44, 44, 46, 0.5) !important;
+  background: rgba(44, 44, 46, 0.8) !important;
   border-radius: 8px !important;
   margin: 0 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .ant-picker-time-panel-column > li {
   color: #f5f5f7 !important;
   font-size: 16px !important;
   font-weight: 500 !important;
-  padding: 8px 0 !important;
+  padding: 8px 12px !important;
   border-radius: 6px !important;
   margin: 2px 4px !important;
   transition: all 0.2s ease !important;
+  background: transparent !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
 }
 
 .ant-picker-time-panel-column > li:hover {
@@ -179,6 +184,14 @@ code {
 
 .ant-picker-time-panel-column > li.ant-picker-time-panel-cell-disabled {
   color: rgba(255, 255, 255, 0.3) !important;
+  background: transparent !important;
+}
+
+/* 时间面板内容区域 */
+.ant-picker-time-panel-column ul {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 4px 0 !important;
 }
 
 /* 时间面板标题 */
@@ -186,14 +199,28 @@ code {
   border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
+/* 日期时间面板分割线 */
+.ant-picker-datetime-panel {
+  background: transparent !important;
+}
+
+.ant-picker-datetime-panel .ant-picker-date-panel {
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
 /* 现在按钮样式 */
 .ant-picker-now-btn {
   color: #007AFF !important;
   font-weight: 500 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
 }
 
 .ant-picker-now-btn:hover {
   color: #0056CC !important;
+  background: rgba(0, 122, 255, 0.1) !important;
 }
 
 /* 确定按钮样式 */
@@ -203,6 +230,8 @@ code {
   color: #ffffff !important;
   font-weight: 500 !important;
   border-radius: 6px !important;
+  padding: 4px 16px !important;
+  height: auto !important;
 }
 
 .ant-picker-ok:hover {
@@ -214,10 +243,42 @@ code {
 .ant-picker-today-btn {
   color: #007AFF !important;
   font-weight: 500 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
 }
 
 .ant-picker-today-btn:hover {
   color: #0056CC !important;
+  background: rgba(0, 122, 255, 0.1) !important;
+}
+
+/* 底部操作区域 */
+.ant-picker-footer {
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 8px 12px !important;
+}
+
+.ant-picker-footer-extra {
+  color: #f5f5f7 !important;
+}
+
+/* 时间选择器输入框图标 */
+.ant-picker-suffix {
+  color: #a1a1a6 !important;
+}
+
+.ant-picker-clear {
+  color: #a1a1a6 !important;
+  background: rgba(44, 44, 46, 0.8) !important;
+  border-radius: 50% !important;
+}
+
+.ant-picker-clear:hover {
+  color: #f5f5f7 !important;
+  background: rgba(60, 60, 67, 0.9) !important;
 }
 
 /* 滚动条样式 - 暗色调 */
@@ -237,4 +298,23 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+
+/* 特别针对时间选择器滚动条 */
+.ant-picker-time-panel-column::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ant-picker-time-panel-column::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.ant-picker-time-panel-column::-webkit-scrollbar-thumb {
+  background: rgba(0, 122, 255, 0.3);
+  border-radius: 3px;
+}
+
+.ant-picker-time-panel-column::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 122, 255, 0.5);
 }

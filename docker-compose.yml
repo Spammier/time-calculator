@@ -1,0 +1,14 @@
+version: '3.8'
+
+networks:
+  shared-network:
+    external: true # 使用已存在的共享网络
+
+services:
+  time_calculator_frontend:
+    build: .
+    container_name: time_calculator_app
+    restart: always
+    networks:
+      - shared-network # 连接到共享网络
+    # 不映射端口到宿主机，让反向代理处理 

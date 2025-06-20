@@ -1,0 +1,31 @@
+{
+  "short_name": "时间计算器",
+  "name": "时间计算器 - 精准时间计算工具",
+  "icons": [
+    {
+      "src": "favicon-32.svg",
+      "type": "image/svg+xml",
+      "sizes": "32x32"
+    },
+    {
+      "src": "clock-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "64x64"
+    },
+    {
+      "src": "clock-192.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "clock-512.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#007AFF",
+  "background_color": "#1a1a1a",
+  "description": "精准的时间计算器，支持时间加减运算，让每一分每一秒都有意义"
+}

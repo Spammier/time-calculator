@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007AFF"/>
+      <stop offset="100%" style="stop-color:#0051D0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆 -->
+  <circle cx="256" cy="256" r="240" fill="url(#bg512)"/>
+  
+  <!-- 时钟外圈 -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#ffffff" stroke-width="16"/>
+  
+  <!-- 12点标记 -->
+  <rect x="240" y="50" width="32" height="64" fill="#ffffff" rx="16"/>
+  <!-- 3点标记 -->
+  <rect x="398" y="240" width="64" height="32" fill="#ffffff" rx="16"/>
+  <!-- 6点标记 -->
+  <rect x="240" y="398" width="32" height="64" fill="#ffffff" rx="16"/>
+  <!-- 9点标记 -->
+  <rect x="50" y="240" width="64" height="32" fill="#ffffff" rx="16"/>
+  
+  <!-- 时针 -->
+  <line x1="256" y1="256" x2="256" y2="140" stroke="#ffffff" stroke-width="24" stroke-linecap="round"/>
+  
+  <!-- 分针 -->
+  <line x1="256" y1="256" x2="350" y2="110" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- 中心点 -->
+  <circle cx="256" cy="256" r="20" fill="#ffffff"/>
+</svg> 

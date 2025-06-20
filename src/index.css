@@ -104,217 +104,513 @@ code {
   color: #ffffff !important;
 }
 
-/* 下拉面板样式 */
+/* ===== DatePicker 下拉面板完全重新设计 ===== */
 .ant-picker-dropdown {
-  background: rgba(28, 28, 30, 0.98) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+  background: rgba(20, 20, 22, 0.98) !important;
+  backdrop-filter: blur(30px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8) !important;
+  padding: 8px !important;
 }
 
 .ant-picker-panel {
-  background: transparent !important;
+  background: rgba(28, 28, 30, 0.95) !important;
   border: none !important;
+  border-radius: 12px !important;
 }
 
+/* 日期选择器头部 */
 .ant-picker-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(28, 28, 30, 0.8) !important;
+  padding: 12px 16px !important;
+  margin-bottom: 8px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .ant-picker-header button {
   color: #f5f5f7 !important;
+  background: rgba(44, 44, 46, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
 }
 
 .ant-picker-header button:hover {
+  color: #ffffff !important;
+  background: rgba(0, 122, 255, 0.2) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
+  transform: scale(1.05) !important;
+}
+
+/* 年份月份居中显示 */
+.ant-picker-header-view {
+  color: #f5f5f7 !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  text-align: center !important;
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.ant-picker-header-view button {
+  color: #f5f5f7 !important;
+  background: transparent !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  text-align: center !important;
+}
+
+.ant-picker-header-view button:hover {
   color: #007AFF !important;
+  background: rgba(0, 122, 255, 0.1) !important;
+}
+
+/* 日期内容区域 - 关键修复：深色背景 */
+.ant-picker-content {
+  background: rgba(28, 28, 30, 0.9) !important;
+  padding: 8px !important;
+  border-radius: 8px !important;
+}
+
+/* 日期面板主体 - 确保深色背景 */
+.ant-picker-body,
+.ant-picker-date-panel {
+  background: rgba(28, 28, 30, 0.9) !important;
+  border-radius: 8px !important;
 }
 
 .ant-picker-content th,
+.ant-picker-content thead th {
+  color: #a1a1a6 !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 8px 4px !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background: rgba(28, 28, 30, 0.8) !important;
+}
+
 .ant-picker-content td {
-  color: #f5f5f7 !important;
-}
-
-.ant-picker-cell:hover .ant-picker-cell-inner {
-  background: rgba(0, 122, 255, 0.2) !important;
-}
-
-.ant-picker-cell-selected .ant-picker-cell-inner {
-  background: #007AFF !important;
-}
-
-/* 时间选择器面板样式 - 重点优化 */
-.ant-picker-time-panel {
+  padding: 2px !important;
   background: transparent !important;
-  border: none !important;
-  padding: 8px !important;
+}
+
+/* 日期单元格重新设计 */
+.ant-picker-cell {
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  margin: 1px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* 强化日期数字显示 - 最高优先级 */
+.ant-picker-cell-inner,
+.ant-picker-cell .ant-picker-cell-inner,
+.ant-picker-content .ant-picker-cell-inner,
+.ant-picker-content td .ant-picker-cell-inner {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+  background: rgba(44, 44, 46, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-shadow: none !important;
+}
+
+/* 确保所有日期文本都是白色 - 强制覆盖 */
+.ant-picker-cell *,
+.ant-picker-cell-inner,
+.ant-picker-cell-inner *,
+.ant-picker-content td,
+.ant-picker-content .ant-picker-cell,
+.ant-picker-content .ant-picker-cell *,
+.ant-picker-body .ant-picker-cell-inner {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+}
+
+/* 日期悬停效果 */
+.ant-picker-cell:hover .ant-picker-cell-inner,
+.ant-picker-cell:hover .ant-picker-cell-inner * {
+  background: rgba(0, 122, 255, 0.4) !important;
+  color: #ffffff !important;
+  border-color: rgba(0, 122, 255, 0.6) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.4) !important;
+  text-shadow: none !important;
+}
+
+/* 选中的日期 */
+.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-cell-selected .ant-picker-cell-inner * {
+  background: linear-gradient(135deg, #007AFF 0%, #0051D0 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border-color: #007AFF !important;
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.6) !important;
+  text-shadow: none !important;
+}
+
+/* 今日日期 */
+.ant-picker-cell-today .ant-picker-cell-inner,
+.ant-picker-cell-today .ant-picker-cell-inner * {
+  border-color: #007AFF !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  background: rgba(0, 122, 255, 0.3) !important;
+  text-shadow: none !important;
+}
+
+/* 禁用的日期 */
+.ant-picker-cell-disabled .ant-picker-cell-inner,
+.ant-picker-cell-disabled .ant-picker-cell-inner * {
+  color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(58, 58, 60, 0.2) !important;
+  cursor: not-allowed !important;
+}
+
+.ant-picker-cell-disabled:hover .ant-picker-cell-inner {
+  background: rgba(58, 58, 60, 0.2) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* 其他月份的日期 */
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner *,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner * {
+  background: #007AFF !important;
+  color: #ffffff !important;
+}
+
+/* 上个月和下个月的日期（灰色日期）- 降低透明度但保持可见 */
+.ant-picker-cell-in-view:not(.ant-picker-cell-in-range) .ant-picker-cell-inner,
+.ant-picker-cell:not(.ant-picker-cell-in-range) .ant-picker-cell-inner {
+  color: #ffffff !important;
+  opacity: 0.5 !important;
+  background: rgba(44, 44, 46, 0.3) !important;
+}
+
+/* ===== 时间面板重新设计 ===== */
+.ant-picker-time-panel {
+  background: rgba(28, 28, 30, 0.9) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 12px 8px !important;
 }
 
 .ant-picker-time-panel-column {
-  background: rgba(44, 44, 46, 0.8) !important;
-  border-radius: 8px !important;
-  margin: 0 4px !important;
+  background: rgba(44, 44, 46, 0.6) !important;
+  border-radius: 10px !important;
+  margin: 0 3px !important;
+  padding: 4px 0 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.ant-picker-time-panel-column > li {
-  color: #f5f5f7 !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
+/* 时间面板数字 - 最强制样式覆盖 */
+.ant-picker-time-panel-column > li,
+.ant-picker-time-panel-cell,
+.ant-picker-time-panel-column .ant-picker-time-panel-cell,
+.ant-picker-time-panel-column li,
+.ant-picker-time-panel ul li {
+  color: #ffffff !important;
+  background: rgba(58, 58, 60, 0.3) !important;
   padding: 8px 12px !important;
-  border-radius: 6px !important;
   margin: 2px 4px !important;
-  transition: all 0.2s ease !important;
-  background: transparent !important;
+  border-radius: 8px !important;
   text-align: center !important;
-  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  transition: all 0.2s ease !important;
+  min-height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.ant-picker-time-panel-column > li:hover {
-  background: rgba(0, 122, 255, 0.3) !important;
+/* 时间数字悬停状态 */
+.ant-picker-time-panel-column > li:hover,
+.ant-picker-time-panel-cell:hover,
+.ant-picker-time-panel-column .ant-picker-time-panel-cell:hover,
+.ant-picker-time-panel-column li:hover {
+  background: rgba(0, 122, 255, 0.4) !important;
   color: #ffffff !important;
+  transform: scale(1.08) !important;
+  box-shadow: 0 3px 12px rgba(0, 122, 255, 0.5) !important;
+  border-color: rgba(0, 122, 255, 0.6) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
 
-.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected {
-  background: #007AFF !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.4) !important;
+/* 时间数字选中状态 - 关键修复：使用深色文字 */
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected,
+.ant-picker-time-panel-cell-selected,
+.ant-picker-time-panel-column .ant-picker-time-panel-cell-selected,
+.ant-picker-time-panel-column li.ant-picker-time-panel-cell-selected {
+  background: linear-gradient(135deg, #007AFF 0%, #0051D0 100%) !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.6) !important;
+  text-shadow: none !important;
+  border-color: #007AFF !important;
 }
 
-.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-disabled {
+/* 确保选中状态的所有子元素也是深色文字 */
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected *,
+.ant-picker-time-panel-cell-selected *,
+.ant-picker-time-panel-column .ant-picker-time-panel-cell-selected *,
+.ant-picker-time-panel-column li.ant-picker-time-panel-cell-selected * {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+/* 时间数字禁用状态 */
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-disabled,
+.ant-picker-time-panel-cell-disabled,
+.ant-picker-time-panel-column .ant-picker-time-panel-cell-disabled {
   color: rgba(255, 255, 255, 0.3) !important;
-  background: transparent !important;
+  background: rgba(58, 58, 60, 0.1) !important;
+  cursor: not-allowed !important;
 }
 
-/* 时间面板内容区域 */
-.ant-picker-time-panel-column ul {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 4px 0 !important;
+/* ===== 底部按钮区域 ===== */
+.ant-picker-footer {
+  background: rgba(28, 28, 30, 0.6) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 12px 16px !important;
+  border-radius: 0 0 12px 12px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
-/* 时间面板标题 */
-.ant-picker-datetime-panel .ant-picker-time-panel {
-  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* 日期时间面板分割线 */
-.ant-picker-datetime-panel {
-  background: transparent !important;
-}
-
-.ant-picker-datetime-panel .ant-picker-date-panel {
-  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* 现在按钮样式 */
 .ant-picker-now-btn {
   color: #007AFF !important;
+  background: rgba(0, 122, 255, 0.08) !important;
+  border: 1px solid rgba(0, 122, 255, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
   font-weight: 500 !important;
-  background: transparent !important;
-  border: none !important;
-  padding: 4px 8px !important;
-  border-radius: 4px !important;
+  font-size: 13px !important;
+  transition: all 0.2s ease !important;
 }
 
 .ant-picker-now-btn:hover {
-  color: #0056CC !important;
-  background: rgba(0, 122, 255, 0.1) !important;
-}
-
-/* 确定按钮样式 */
-.ant-picker-ok {
-  background: #007AFF !important;
-  border-color: #007AFF !important;
+  background: rgba(0, 122, 255, 0.15) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
   color: #ffffff !important;
-  font-weight: 500 !important;
-  border-radius: 6px !important;
-  padding: 4px 16px !important;
-  height: auto !important;
+  transform: translateY(-1px) !important;
 }
 
-.ant-picker-ok:hover {
-  background: #0056CC !important;
-  border-color: #0056CC !important;
-}
-
-/* 今天按钮样式 */
-.ant-picker-today-btn {
-  color: #007AFF !important;
-  font-weight: 500 !important;
-  background: transparent !important;
+.ant-picker-footer .ant-btn {
+  background: linear-gradient(135deg, #007AFF 0%, #0051D0 100%) !important;
   border: none !important;
-  padding: 4px 8px !important;
-  border-radius: 4px !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  padding: 6px 16px !important;
+  height: auto !important;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3) !important;
+  transition: all 0.2s ease !important;
 }
 
-.ant-picker-today-btn:hover {
-  color: #0056CC !important;
-  background: rgba(0, 122, 255, 0.1) !important;
+.ant-picker-footer .ant-btn:hover {
+  background: linear-gradient(135deg, #0051D0 0%, #003D99 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4) !important;
 }
 
-/* 底部操作区域 */
-.ant-picker-footer {
-  background: transparent !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 8px 12px !important;
-}
-
-.ant-picker-footer-extra {
-  color: #f5f5f7 !important;
-}
-
-/* 时间选择器输入框图标 */
+/* ===== 图标样式 ===== */
 .ant-picker-suffix {
   color: #a1a1a6 !important;
+  transition: all 0.2s ease !important;
+}
+
+.ant-picker:hover .ant-picker-suffix {
+  color: #007AFF !important;
 }
 
 .ant-picker-clear {
   color: #a1a1a6 !important;
   background: rgba(44, 44, 46, 0.8) !important;
   border-radius: 50% !important;
+  transition: all 0.2s ease !important;
 }
 
 .ant-picker-clear:hover {
-  color: #f5f5f7 !important;
-  background: rgba(60, 60, 67, 0.9) !important;
+  color: #ff4757 !important;
+  background: rgba(255, 71, 87, 0.1) !important;
+  transform: scale(1.1) !important;
 }
 
 /* 滚动条样式 - 暗色调 */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+  background: rgba(0, 122, 255, 0.3);
+  border-radius: 3px;
+  transition: all 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 122, 255, 0.5);
 }
 
-/* 特别针对时间选择器滚动条 */
+/* 时间面板专用滚动条 */
 .ant-picker-time-panel-column::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .ant-picker-time-panel-column::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 2px;
 }
 
 .ant-picker-time-panel-column::-webkit-scrollbar-thumb {
-  background: rgba(0, 122, 255, 0.3);
-  border-radius: 3px;
+  background: rgba(0, 122, 255, 0.4);
+  border-radius: 2px;
 }
 
 .ant-picker-time-panel-column::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 122, 255, 0.5);
+  background: rgba(0, 122, 255, 0.6);
+}
+
+/* ===== 全局强制样式 - 确保所有DatePicker文本清晰可见 ===== */
+/* 强制所有DatePicker相关文本为白色 - 最高优先级 */
+.ant-picker-dropdown *,
+.ant-picker-panel *,
+.ant-picker-content *,
+.ant-picker-time-panel *,
+div[class*="picker"] *,
+div[class*="time-panel"] *,
+.ant-picker-body *,
+.ant-picker-date-panel *,
+.ant-picker-time-panel-column *,
+ul[class*="picker"] li,
+li[class*="picker"],
+.ant-picker-cell,
+.ant-picker-cell *,
+.ant-picker-cell-inner,
+.ant-picker-time-panel-cell {
+  color: #ffffff !important;
+}
+
+/* 特别强化数字显示 - 覆盖所有可能的选择器 */
+.ant-picker-cell-inner,
+.ant-picker-time-panel-cell,
+.ant-picker-time-panel-column li,
+li[class*="time-panel-cell"],
+.ant-picker-content .ant-picker-cell-inner,
+.ant-picker-body .ant-picker-cell-inner,
+.ant-picker-date-panel .ant-picker-cell-inner,
+.ant-picker-time-panel-column > li,
+.ant-picker-time-panel ul li,
+div[class*="picker-cell"] {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 确保选中状态的文本清晰 - 最强优先级 */
+.ant-picker-cell-selected,
+.ant-picker-cell-selected *,
+.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-time-panel-cell-selected,
+.ant-picker-time-panel-cell-selected *,
+li.ant-picker-time-panel-cell-selected,
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected {
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+/* 日期选中状态保持白色文字 */
+.ant-picker-cell-selected,
+.ant-picker-cell-selected *,
+.ant-picker-cell-selected .ant-picker-cell-inner {
+  color: #ffffff !important;
+}
+
+/* 时间选中状态使用深色文字 */
+.ant-picker-time-panel-cell-selected,
+.ant-picker-time-panel-cell-selected *,
+li.ant-picker-time-panel-cell-selected,
+li.ant-picker-time-panel-cell-selected *,
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected,
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected * {
+  color: #000000 !important;
+}
+
+/* 头部文本强化 */
+.ant-picker-header,
+.ant-picker-header *,
+.ant-picker-header-view,
+.ant-picker-header-view * {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* 周标题强化 */
+.ant-picker-content th,
+.ant-picker-content thead th {
+  color: #a1a1a6 !important;
+  font-weight: 600 !important;
+}
+
+/* 底部按钮区域文本 */
+.ant-picker-footer *,
+.ant-picker-now-btn,
+.ant-picker-now-btn * {
+  color: inherit !important;
+}
+
+/* 终极强制样式 - 确保没有任何文本被遗漏 */
+div[class*="ant-picker"] div,
+div[class*="ant-picker"] li,
+div[class*="ant-picker"] span,
+div[class*="ant-picker"] a,
+.ant-picker-dropdown div,
+.ant-picker-dropdown li,
+.ant-picker-dropdown span {
+  color: #ffffff !important;
+}
+
+/* 特别针对Ant Design的内部类名 */
+.ant-picker-cell-inner::before,
+.ant-picker-cell-inner::after,
+.ant-picker-time-panel-cell::before,
+.ant-picker-time-panel-cell::after {
+  color: #ffffff !important;
 }
